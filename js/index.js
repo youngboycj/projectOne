@@ -47,6 +47,10 @@ $(function(){
 				});
 		}
 	});	
+});
+(function(){
+	$("header").find("li").eq(0).on("touchstart",function(){
+		console.log(123);
+	})
 
-	
 });
