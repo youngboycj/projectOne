@@ -1,0 +1,32 @@
+*{ margin:0; padding: 0; }
+html{ font-size: 15.625px; }
+ul,li{list-style: none;}
+header{ height: 2.816rem; width: 100%; background: green; }
+header div{ width:100%;height:100%;background:green; }
+header .ul1{ width:100%;height:100%;background:red;display:flex; flex-flow:row nowrap; justify-content:space-around; justify-content: space-around; }
+header .ul1 li{width: 30%; height:100%; background: green; text-align:center; line-height: 2.816rem; }
+footer{ height: 2.816rem; width: 100%; background: red; display: none;margin:0 auto;}
+section{ height: 100%; width: 100%; }
+section .ul2{ width: 100%; display: flex; justify-content: flex-start; flex-flow: row wrap; padding: 0; margin:0; justify-content: space-around;}
+section .ul2 li{ width:40%; list-style: none; overflow: hidden;  text-align: left;  align-items:top; box-sizing: border-box; margin:3% 0;}
+section .ul2 li img{ width: 100%; display: block; margin-bottom: 0.4rem; }
+section .ul2 li p{ width: 100%; font-size: 1.1rem; color:rgba(0,0,0,0.6); }
+footer button{ width: 25%; margin: 5% 10%; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
