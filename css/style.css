@@ -1,27 +1,38 @@
 *{ margin:0; padding: 0; }
 ul,li{list-style: none;}
-header{ height: 0.88rem; width: 100%; line-height: 0.88rem; background: #424340;}
-header p.headerp{ height: 100%; width: 100%; display: flex; justify-content: center; align-items: center; color:#5684f9;}
-header p.headerp span{ width: 30%; font-size:  0.5rem; border: 0; margin:0 10%; text-align: center; border:1px solid #ccc; }
+body{ color:#3c7974; display: relative;}
+header{ height: 0.88rem; width: 100%;/*  line-height: 0.88rem; */ background: #424340; }
+header p.headerp{ height: 50%; width: 100%; padding-top: 0.22rem;display: flex; justify-content: center; align-items: center; color:#5684f9; }
+header p.headerp span{ width: 30%; font-size:  0.4rem; border: 0; margin:0 10%; text-align: center; border:1px solid #ccc;  }
 
-section{ /* height: 100%; */ width: 100%; }
-section .ul1{ width: 100%; height:100%; display: flex; justify-content: flex-start; flex-flow: row wrap; padding: 0; margin:0; justify-content: space-around; }
-section .ul1 li{ width:40%; list-style: none; overflow: hidden;  text-align: left;  align-items:top; box-sizing: border-box; margin:3% 0; height: 2.5rem; }
-section .ul1 .imgdiv{ width: 100%; height: 80%; margin-bottom: 5%; }
-section .ul1 li img{ width: 100%; display: block; height: 100%; }
-section .ul1 li p{ height: 18%;width: 100%; font-size: 0.34rem; color:rgba(0,0,0,0.6); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+section{ width: 100%;}
+section .banner{ width:100%; height: 0.8rem; display: none; font-size: 0.4rem; line-height: 0.8rem; text-indent: 0.25rem; color: red; font-family: "微软雅黑";}
+section .banner p { background-size: cover;} 
+section .ul1,.ul2{ width: 100%; height:100%; display: flex; justify-content: flex-start; flex-flow: row wrap; padding: 0; margin:0; justify-content: space-around; }
+
+section li{ width:40%; list-style: none; overflow: hidden;  text-align: left;  align-items:top; box-sizing: border-box; margin:3% 0; height: 2.5rem; }
+/* section .ul2 li{ width:35%; list-style: none; overflow: hidden;  text-align: left;  align-items:top; box-sizing: border-box; margin:3% 0; height: 2.5rem; } */
+section  .imgdiv{ width: 100%; height: 80%; margin-bottom: 5%; }
+section  li img{ width: 100%; display: block; height: 100%; }
+section  li p{ height: 18%;width: 100%; font-size: 0.34rem; ; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+section .ul2 li p{ font-size: 0.24rem; color:#3c3c3c; }
+
 footer{ height: 0.88rem; width: 100%; line-height: 0.88rem; display: none;}
 .footerdiv{ height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;  }
 .footerdiv span{ width: 30%; font-size:  0.3rem; border: 0; margin:0 10%; text-align: center; border:1px solid #ccc; font-family: "微软雅黑"}
 .footerdiv span:nth-of-type(1){color:red;}
 .div1{ width: 100%; height: 88px; display: none; font-family: "微软雅黑";}
 
-section .div1p{ width: 80%; height:0.6rem; margin:0 auto; font-size:0.28rem; padding-left: 10%;}
-section .div1p input:nth-of-type(1){width:80%; height: 0.6rem; border-width:1px; box-sizing: border-box; text-indent: 6px;}
+section .div1p{ width: 90%; height:0.6rem; margin:0 auto; font-size:0.28rem; padding-left: 10%; padding-top: 0.1rem; margin-bottom: 0.1rem;}
+section .div1p input:nth-of-type(1){width:70%; height: 0.6rem; border:1px solid #ccc; box-sizing: border-box; text-indent: 6px;}
 section .div1p input:nth-of-type(2){width:20%; height: 0.6rem; border-width:1px; box-sizing: border-box;}
 .div1p p.liebiao{ width: 100%; height: 0.4rem; line-height: 0.4rem; font-size:0.3rem; color: #d82401; margin:0.1rem 0; background: #d8f3f0; text-indent: 6px;}
 
-
+section .div_detail{ width:100%; height: 100%; display: none; padding-top:0.1rem;}
+section .div_detail div{ width: 6rem; height: 100%; margin:0 auto; }
+section .div_detail div img{ width: 100%;  }
+section .div_detail p{ width: 90%; font-size:0.32rem; color:#509e98; margin:0.1rem 0; text-indent: 0.2rem; overflow: hidden; white-space: wrap; }
+section .div_detail p a{ text-decoration: none; }
 
 
 

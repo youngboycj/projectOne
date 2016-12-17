@@ -5,17 +5,17 @@ $(function(){
 	$("section .ul1").show();
 	Ajax(_appid,_apikey,50);
 	$(".headerp span").eq(0).on("touchstart",function(){
+		$("section").children("p.pend").hide();
 		$("section .ul1").show();
-		$("section .div1").hide();
+		$("section .div1,.div_detail").hide();
 		Ajax(_appid,_apikey,_max);
-		console.log(111111111);
+		//console.log(111111111);
 	});
-
-
 });
 
 function Ajax(appid,api,maxResult){
-	var tiaomu = items = 10;
+	var tiaomu  = 10;
+	var items = 10;
 	var pages = parseInt(maxResult/items);
 	var last = maxResult - items*pages;//用于判断最后一页需要加载多少
 	var arr = [];
@@ -41,17 +41,17 @@ function Ajax(appid,api,maxResult){
 				 _titles.push(data[i].title);
 			}
 
-			function show(i,end){
+			function show(end){
 				var str = "";//用于添加li
-				for(; i<end; i++){
+				for(var i=0; i<end; i++){
 					str += `<li><div class="imgdiv"><img src="${_imgs[i]}"></div>
 					<p>${(i+1)+"."+_titles[i]}</p></li>`;
 				}
-				$("section .ul1").append(str);
+				$("section .ul1").html(str);
 				str2 = $("html").height();
 				// console.log(str2);
 			}
-			show(0,items);//初始显示
+			show(items);//初始显示
 
 			//返回顶部
 			$("footer .returnTop").on("touchstart",function(e){
@@ -68,7 +68,7 @@ function Ajax(appid,api,maxResult){
 			//加载更多
 			$("footer .next").on("touchstart",function(){
 				if(items < maxResult){
-					show(items,items+tiaomu);
+					show(items+tiaomu);
 				}else if( items + last > maxResult ){
 					return false;
 				}else{
@@ -91,15 +91,20 @@ function Ajax(appid,api,maxResult){
 				//console.log($(this).css("height"));
 				if($(this).css("height") === _fontsize){
 					$(this).css({"width":"100%","height":"100%"}).siblings().hide();
-					$(this).find("p").css({"color":"red"});
+					$(this).find("p").css({"color":"red","font-weight":"600"});
 					$("footer").hide();
 				}else{
 					$(this).css({"height":_fontsize,"width":"40%"}).siblings().show();
-					$(this).find("p").css({"color":"rgba(0,0,0,0.6)"});
+					$(this).find("p").css({"color":"rgba(60,121,116,0.8)"});
 					$("footer").show();
 				}
 			});
-			$("footer").show();
+				var _height = $("section").height();
+				if(_height !== 0){
+					$("footer").show();
+				}else{
+					$("footer").hide();
+				}
 		}
 	});	
 }

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>歌曲详细信息</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/html.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/all.css">
+	<script type="text/javascript" src="js/index1.js"></script>
+	<script type="text/javascript" src="js/index2.js"></script>
+</head>
+<body style="background:#eee">
+	<header>
+		<p class="headerp">
+			<span>搞笑</span>
+			<span>音乐</span>
+		</p>
+	</header>
+	<section>
+		<ul class="ul1">
+		
+		</ul> 
+		<div class="div1">
+		 <p class="div1p"><input type="text" placeholder="请输入歌曲名称" class="gequ"><input type="submit" value="搜索" class="sousuo"></p>
+		 <p class="banner"> </p>
+		 <ul class="ul2">
+		 </ul>
+		</div>
+		<div class="div_detail"></div>
+	</section>
+	<footer>
+			<div class="footerdiv">
+				<span class="returnTop">返回顶部</span>
+				<span class="next">加载更多</span>
+			</div>
+	</footer> 
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+			$("footer").hide();
+			$("section .ul1").hide();
+			Ajax(0,0,50);//为了防止默认页面的出现
+			var url2 = "http://tingapi.ting.baidu.com/v1/restserver/ting"; 
+			var key2 = "method=baidu.ting.song.play&songid=";
+			var _songid = window.location.search.split("?")[1].split("=")[1];
+			//console.log(_songid);
+			
+			Ajax2(url2,key2,_songid);
+
+			//ajax加载
+			function Ajax2(url,key,gequid){
+			var _data = url +"?" + key+ "" + gequid;
+			$.ajax({
+				url: "php/ajax.php",
+				type:"GET",
+				dataType:"json",
+				data:{ data: _data}
+		    })
+		    .fail(function(){
+				console.log("fail....datail");
+			})
+			.done(function(data){
+				var songinfo = data.songinfo;
+				//console.log(data);
+				var _songlink = data.bitrate.file_link;
+				var _album = songinfo.title;
+				var _author = songinfo.author;
+				var _img = songinfo.pic_radio;
+				var _lrclink = songinfo.lrclink;
+				//console.log(_lrclink);
+				var str = `<div><img src = '${_img}'></div><p>歌曲:<span>${_album}</span><p>演唱:<span>${_author}</span><p>歌曲链接:<a href="${_songlink}">${_songlink}</a><p>歌词链接:<a href="${_lrclink}">${_lrclink}</a>`;
+				$(".div_detail").append(str).show();
+
+				//$(".div_detail").html(`<a href = '_lrclink'></a>`);
+				/*$(".div_detail").html("audio src = 'http://yinyueshiting.baidu.com/data2/music/43099977/43099977.mp3?xcode=aefbab8ea5128519ed47f60d337fa3fd'></audio>");*/
+				$("section .div_detail p").on("touchstart",function(){
+					//console.log(123);
+					$(this).css("height","100%");
+				});
+			});
+		}
+	});
+</script> 
